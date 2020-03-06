@@ -1,9 +1,46 @@
 <h1>Hi {{currentUser.firstName}}!</h1>
 <p>You're logged in to your HRS App!!</p>
 <h3>All registered users:</h3>
-<ul>
-  <li *ngFor="let user of users">
-    {{user.username}} ({{user.firstName}} {{user.lastName}})
-    - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-  </li>
-</ul>
+
+<table class="table table-responsive-lg table-border">
+  <tr>
+    <th>Id</th>
+    <th>UserName</th>
+    <th>Firstname</th>
+    <th>lastName</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td> {{user.id}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td><button value="Edit" class="btn btn-warning" (click)="editUser(user)">Edit</button></td>
+    <td><button value="Delete" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button></td>
+  </tr>
+</table>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      Id
+      <input readonly type="text" class="form-control" id="id">
+    </div>
+    <div class="col">
+      UserName
+      <input type="text" class="form-control" id="username">
+    </div>
+    <div class="col">
+      FirstName
+      <input type="text" class="form-control" id="firstname">
+    </div>
+    <div class="col">
+      lastName
+      <input type="text" class="form-control" id="lastname">
+    </div>
+    <div class="col">
+      <button value="Update" class="btn btn-info mt-4" (click)="updateData()">Update</button>
+    </div>
+  </div>
+</div>
+
+

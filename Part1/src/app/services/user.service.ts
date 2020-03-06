@@ -22,4 +22,8 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(`${this.apiUrl}/users/${id}`);
     }
+
+    edit(user){
+        return this.http.put(`${this.apiUrl}/users/edit/`+user.id, user);
+    }
 }
